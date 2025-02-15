@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
-import { DaySchedule as DayScheduleType } from '../data/timetable';
+import { DaySchedule as DayScheduleType, TimeSlot } from '../data/timetable';
 import { TimeSlotCard } from './TimeSlotCard';
+import { getCurrentTimeSlot } from '../data/timetable';
+import { getPeriodStatus } from '../utils/timeUtils';
 
 interface DayScheduleProps {
   schedule: DayScheduleType;
@@ -8,9 +10,7 @@ interface DayScheduleProps {
 }
 
 export function DaySchedule({ schedule, isToday }: DayScheduleProps) {
-  const currentHour = new Date().getHours();
-  const currentMinutes = new Date().getMinutes();
-  const currentTime = currentHour * 60 + currentMinutes;
+  const currentTimeSlot = getCurrentTimeSlot();
 
   return (
     <motion.div
@@ -20,11 +20,8 @@ export function DaySchedule({ schedule, isToday }: DayScheduleProps) {
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {schedule.slots.map((slot, index) => {
-          const [startStr] = slot.time.split(" - ");
-          const [startHour, startMin] = startStr.split(":").map(Number);
-          const slotTime = startHour * 60 + startMin;
-          
-          const isActive = isToday && Math.abs(currentTime - slotTime) < 60;
+          const periodStatus = getPeriodStatus(slot.time);
+          const isActive = isToday && currentTimeSlot?.time === slot.time;
 
           return (
             <TimeSlotCard
@@ -32,6 +29,7 @@ export function DaySchedule({ schedule, isToday }: DayScheduleProps) {
               slot={slot}
               isActive={isActive}
               index={index}
+              periodStatus={periodStatus}
             />
           );
         })}

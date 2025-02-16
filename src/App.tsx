@@ -3,28 +3,68 @@ import { Calendar, Sun, Moon } from 'lucide-react';
 import { QuoteDisplay } from './components/QuoteDisplay';
 import { DaySchedule } from './components/DaySchedule';
 import { timetableData, getCurrentDaySchedule } from './data/timetable';
+import { format } from 'date-fns';
+import { utcToZonedTime } from 'date-fns-tz';
 
 function App() {
-  const currentDaySchedule = getCurrentDaySchedule();
   const today = new Date().getDay();
-  const [selectedDay, setSelectedDay] = useState(today - 1);
+  const [selectedDay, setSelectedDay] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem('theme') === 'dark' ||
       (!localStorage.getItem('theme') &&
         window.matchMedia('(prefers-color-scheme: dark)').matches)
   );
+  const [showSundayMessage, setShowSundayMessage] = useState(today === 0 && sessionStorage.getItem('sundayMessageShown') !== 'true');
+  const [indiaTime, setIndiaTime] = useState(format(utcToZonedTime(new Date(), 'Asia/Kolkata'), 'hh:mm:ss a'));
+  const [showTimetable, setShowTimetable] = useState(today !== 0);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDarkMode);
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
+  useEffect(() => {
+    if (today === 0 && sessionStorage.getItem('sundayMessageShown') !== 'true') {
+      sessionStorage.setItem('sundayMessageShown', 'true');
+    }
+  }, [today]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setIndiaTime(format(utcToZonedTime(new Date(), 'Asia/Kolkata'), 'hh:mm:ss a'));
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
+
   const toggleTheme = () => {
     setIsDarkMode((prev) => !prev);
   };
 
+  const closeSundayMessage = () => {
+    setShowSundayMessage(false);
+    setShowTimetable(true);
+  };
+
+  const getDayName = (dayIndex: number): string => {
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    return days[dayIndex];
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+      {showSundayMessage && (
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-200 dark:bg-gray-700 p-6 rounded-lg shadow-lg z-50">
+          <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg">
+            No classes scheduled for today (Sunday). Enjoy your weekend!
+          </p>
+          <button
+            onClick={closeSundayMessage}
+            className="mt-4 px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-colors text-sm"
+          >
+            OK
+          </button>
+        </div>
+      )}
       <div className="max-w-7xl mx-auto px-4 py-4 sm:py-6">
         <header className="mb-6">
           <div className="flex items-center justify-between mb-4">
@@ -46,6 +86,9 @@ function App() {
             </button>
           </div>
           <QuoteDisplay />
+          <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+            Current India Time: {indiaTime}
+          </div>
         </header>
 
         <div className="flex gap-2 mb-6 overflow-x-auto pb-2 scrollbar-hide">
@@ -60,7 +103,7 @@ function App() {
               }`}
             >
               {schedule.day}
-              {index === today - 1 && (
+              {index === today && (
                 <span className="ml-2 text-xs opacity-75">(Today)</span>
               )}
             </button>
@@ -68,10 +111,12 @@ function App() {
         </div>
 
         <main className="h-[calc(100vh-280px)] overflow-y-auto">
-          <DaySchedule
-            schedule={timetableData[selectedDay]}
-            isToday={selectedDay === today - 1}
-          />
+          {showTimetable && (
+            <DaySchedule
+              schedule={timetableData[selectedDay]}
+              isToday={today !== 0}
+            />
+          )}
         </main>
       </div>
     </div>

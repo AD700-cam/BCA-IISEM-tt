@@ -72,9 +72,9 @@ export const timetableData: DaySchedule[] = [
   }
 ];
 
-export const getCurrentDaySchedule = (): DaySchedule => {
+export const getCurrentDaySchedule = (): DaySchedule | undefined => {
   const today = new Date().getDay();
-  return timetableData[today === 0 ? 6 : today - 1];
+   return timetableData[today === 0 ? 5 : today - 1];
 };
 
 export const getCurrentTimeSlot = (): TimeSlot | undefined => {

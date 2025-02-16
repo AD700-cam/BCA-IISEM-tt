@@ -3,19 +3,16 @@ import { Calendar, Sun, Moon } from 'lucide-react';
 import { QuoteDisplay } from './components/QuoteDisplay';
 import { DaySchedule } from './components/DaySchedule';
 import { timetableData, getCurrentDaySchedule } from './data/timetable';
-import { format } from 'date-fns';
-import { utcToZonedTime } from 'date-fns-tz';
 
 function App() {
   const today = new Date().getDay();
-  const [selectedDay, setSelectedDay] = useState(0);
+  const [selectedDay, setSelectedDay] = useState(today === 0 ? 5 : today - 1);
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem('theme') === 'dark' ||
       (!localStorage.getItem('theme') &&
         window.matchMedia('(prefers-color-scheme: dark)').matches)
   );
   const [showSundayMessage, setShowSundayMessage] = useState(today === 0 && sessionStorage.getItem('sundayMessageShown') !== 'true');
-  const [indiaTime, setIndiaTime] = useState(format(utcToZonedTime(new Date(), 'Asia/Kolkata'), 'hh:mm:ss a'));
   const [showTimetable, setShowTimetable] = useState(today !== 0);
 
   useEffect(() => {
@@ -29,13 +26,6 @@ function App() {
     }
   }, [today]);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setIndiaTime(format(utcToZonedTime(new Date(), 'Asia/Kolkata'), 'hh:mm:ss a'));
-    }, 1000);
-    return () => clearInterval(intervalId);
-  }, []);
-
   const toggleTheme = () => {
     setIsDarkMode((prev) => !prev);
   };
@@ -43,11 +33,6 @@ function App() {
   const closeSundayMessage = () => {
     setShowSundayMessage(false);
     setShowTimetable(true);
-  };
-
-  const getDayName = (dayIndex: number): string => {
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    return days[dayIndex];
   };
 
   return (
@@ -86,9 +71,6 @@ function App() {
             </button>
           </div>
           <QuoteDisplay />
-          <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-            Current India Time: {indiaTime}
-          </div>
         </header>
 
         <div className="flex gap-2 mb-6 overflow-x-auto pb-2 scrollbar-hide">
@@ -103,7 +85,7 @@ function App() {
               }`}
             >
               {schedule.day}
-              {index === today && (
+              {index === today - 1 && (
                 <span className="ml-2 text-xs opacity-75">(Today)</span>
               )}
             </button>

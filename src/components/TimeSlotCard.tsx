@@ -4,19 +4,17 @@ import { TimeSlot } from '../data/timetable';
 import clsx from 'clsx';
 import { useState, useEffect } from 'react';
 import { getAiGeneratedDescription } from '../utils/aiDescriptions';
-import { isStartingSoon, getPeriodStatus } from '../utils/timeUtils';
 
 interface TimeSlotCardProps {
   slot: TimeSlot;
-  isToday?: boolean;
+  isActive?: boolean;
   index: number;
-  periodStatus: "Done" | "Ongoing" | "Pending" | "Starting Soon";
+  periodStatus: "Done" | "Ongoing" | "Pending";
 }
 
-export function TimeSlotCard({ slot, isToday, index, periodStatus }: TimeSlotCardProps) {
+export function TimeSlotCard({ slot, isActive, index, periodStatus }: TimeSlotCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [aiDescription, setAiDescription] = useState("");
-  const startingSoon = isToday && isStartingSoon(slot.time);
 
   useEffect(() => {
     if (isExpanded) {
@@ -37,8 +35,7 @@ export function TimeSlotCard({ slot, isToday, index, periodStatus }: TimeSlotCar
         isActive
           ? "bg-gradient-to-r from-blue-600 to-blue-500"
           : "bg-gray-800 hover:bg-gray-700",
-        "dark:bg-gray-800 dark:hover:bg-gray-700",
-        { 'bg-gradient-to-r from-yellow-600 to-yellow-500': startingSoon }
+        "dark:bg-gray-800 dark:hover:bg-gray-700"
       )}
       onClick={() => setIsExpanded(!isExpanded)}
     >
@@ -67,10 +64,8 @@ export function TimeSlotCard({ slot, isToday, index, periodStatus }: TimeSlotCar
         </motion.div>
       )}
       <div className="mt-1 text-[0.6rem] text-gray-500 dark:text-gray-400 self-end">
-       {periodStatus}
+        {periodStatus}
       </div>
     </motion.div>
   );
 }
-
-const isActive = false;

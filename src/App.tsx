@@ -3,8 +3,10 @@ import { Calendar, Sun, Moon } from 'lucide-react';
 import { QuoteDisplay } from './components/QuoteDisplay';
 import { DaySchedule } from './components/DaySchedule';
 import { timetableData, getCurrentDaySchedule } from './data/timetable';
+import { motion } from "framer-motion";
 
 function App() {
+  const currentDaySchedule = getCurrentDaySchedule();
   const today = new Date().getDay();
   const [selectedDay, setSelectedDay] = useState(today === 0 ? 5 : today - 1);
   const [isDarkMode, setIsDarkMode] = useState(
@@ -38,7 +40,13 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
       {showSundayMessage && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-200 dark:bg-gray-700 p-6 rounded-lg shadow-lg z-50">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.2 }}
+          className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-200 dark:bg-gray-700 p-6 rounded-lg shadow-lg z-50"
+        >
           <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg">
             No classes scheduled for today (Sunday). Enjoy your weekend!
           </p>
@@ -48,7 +56,7 @@ function App() {
           >
             OK
           </button>
-        </div>
+        </motion.div>
       )}
       <div className="max-w-7xl mx-auto px-4 py-4 sm:py-6">
         <header className="mb-6">
@@ -73,7 +81,12 @@ function App() {
           <QuoteDisplay />
         </header>
 
-        <div className="flex gap-2 mb-6 overflow-x-auto pb-2 scrollbar-hide">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="flex gap-2 mb-6 overflow-x-auto pb-2 scrollbar-hide"
+        >
           {timetableData.map((schedule, index) => (
             <button
               key={schedule.day}
@@ -90,7 +103,7 @@ function App() {
               )}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         <main className="h-[calc(100vh-280px)] overflow-y-auto">
           {showTimetable && (

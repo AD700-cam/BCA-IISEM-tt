@@ -14,60 +14,72 @@ export const timetableData: DaySchedule[] = [
     day: "Monday",
     slots: [
       { time: "9:30 - 10:30", subject: "KAN/HIN" },
-      { time: "10:30 - 11:30", subject: "VAC" },
-      { time: "11:30 - 12:30", subject: "DS-IN" },
-      { time: "12:30 - 1:30", subject: "RP-ARP" },
-      { time: "2:00 - 3:00", subject: "OS-SP" }
+      { time: "10:30 - 11:20", subject: "ENG - RK" },
+      { time: "11:20 - 11:30", subject: "Break" },
+      { time: "11:30 - 12:30", subject: "DS - IN" },
+      { time: "12:30 - 1:30", subject: "OS - SP" },
+      { time: "1:30 - 2:00", subject: "Lunch Break" },
+      { time: "2:00 - 3:00", subject: "DS - IN" }
     ]
   },
   {
     day: "Tuesday",
     slots: [
-      { time: "9:30 - 10:30", subject: "RP-ARP" },
-      { time: "10:30 - 11:30", subject: "DS-IN" },
-      { time: "11:30 - 12:30", subject: "IC" },
-      { time: "12:30 - 1:30", subject: "Eng-RK" },
-      { time: "2:00 - 3:00", subject: "RP-ARP" }
+      { time: "9:30 - 10:30", subject: "OS - SP" },
+      { time: "10:30 - 11:20", subject: "RP - ARP" },
+      { time: "11:20 - 11:30", subject: "Break" },
+      { time: "11:30 - 12:30", subject: "ENG - RK" },
+      { time: "12:30 - 1:30", subject: "OS - SP" },
+      { time: "1:30 - 2:00", subject: "Lunch Break" },
+      { time: "2:00 - 3:00", subject: "DS - IN" }
     ]
   },
   {
     day: "Wednesday",
     slots: [
       { time: "9:30 - 10:30", subject: "VAC" },
-      { time: "10:30 - 11:30", subject: "DS-IN" },
-      { time: "11:30 - 12:30", subject: "IC" },
-      { time: "12:30 - 1:30", subject: "RP-ARP" },
+      { time: "10:30 - 11:20", subject: "RP - ARP" },
+      { time: "11:20 - 11:30", subject: "Break" },
+      { time: "11:30 - 12:30", subject: "SPORTS" },
+      { time: "12:30 - 1:30", subject: "DS - IN" },
+      { time: "1:30 - 2:00", subject: "Lunch Break" },
       { time: "2:00 - 3:00", subject: "KAN/HIN" }
     ]
   },
   {
     day: "Thursday",
     slots: [
-      { time: "9:30 - 10:30", subject: "RP-ARP" },
-      { time: "10:30 - 11:30", subject: "KAN/HIN" },
-      { time: "11:30 - 12:30", subject: "DS-Lab-IN" },
-      { time: "12:30 - 1:30", subject: "DS-Lab-IN" },
-      { time: "2:00 - 3:00", subject: "OS-SP" }
+      { time: "9:30 - 10:30", subject: "IC - PK" },
+      { time: "10:30 - 11:20", subject: "KAN/HIN" },
+      { time: "11:20 - 11:30", subject: "Break" },
+      { time: "11:30 - 12:30", subject: "DS - LAB - IN" },
+      { time: "12:30 - 1:30", subject: "DS - LAB - IN" },
+      { time: "1:30 - 2:00", subject: "Lunch Break" },
+      { time: "2:00 - 3:00", subject: "DS - IN" }
     ]
   },
   {
     day: "Friday",
     slots: [
-      { time: "9:30 - 10:30", subject: "OS-SP" },
-      { time: "10:30 - 11:30", subject: "RP-ARP" },
-      { time: "11:30 - 12:30", subject: "RP-Lab-ARP" },
-      { time: "12:30 - 1:30", subject: "RP-Lab-ARP" },
-      { time: "2:00 - 3:00", subject: "Eng-RK" }
+      { time: "9:30 - 10:30", subject: "RP - LAB - ARP" },
+      { time: "10:30 - 11:20", subject: "RP - LAB - ARP" },
+      { time: "11:20 - 11:30", subject: "Break" },
+      { time: "11:30 - 12:30", subject: "VAC" },
+      { time: "12:30 - 1:30", subject: "ENG - RK" },
+      { time: "1:30 - 2:00", subject: "Lunch Break" },
+      { time: "2:00 - 3:00", subject: "RP - ARP" }
     ]
   },
   {
     day: "Saturday",
     slots: [
-      { time: "9:30 - 10:30", subject: "OS-SP" },
-      { time: "10:30 - 11:30", subject: "Eng-RK" },
-      { time: "11:30 - 12:30", subject: "RP-ARP" },
+      { time: "9:30 - 10:30", subject: "OS - SP" },
+      { time: "10:30 - 11:20", subject: "RP - ARP" },
+      { time: "11:20 - 11:30", subject: "Break" },
+      { time: "11:30 - 12:30", subject: "ENG - RK" },
       { time: "12:30 - 1:30", subject: "KAN/HIN" },
-      { time: "2:00 - 3:00", subject: "30M-B/LET-OFF After-2:00" }
+      { time: "1:30 - 2:00", subject: "30M-B/LET-OFF After-2:00" },
+     
     ]
   }
 ];

@@ -33,15 +33,15 @@ export function TimeSlotCard({ slot, isActive, index, periodStatus }: TimeSlotCa
       className={clsx(
         "p-3 rounded-lg shadow-lg transition-all duration-300 flex flex-col cursor-pointer",
         isActive
-          ? "bg-gradient-to-r from-blue-600 to-blue-500"
-          : "bg-gray-800 hover:bg-gray-700",
+          ? "bg-gradient-to-r from-green-400 to-green-500 text-white"
+          : "bg-gray-800 hover:bg-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700",
         "dark:bg-gray-800 dark:hover:bg-gray-700"
       )}
       onClick={() => setIsExpanded(!isExpanded)}
     >
       <div className="flex items-center gap-2 mb-1">
-        <Clock className={clsx("w-4 h-4", isActive ? "text-blue-200" : "text-blue-400")} />
-        <span className={clsx("text-xs", isActive ? "text-blue-100" : "text-gray-400")}>
+        <Clock className={clsx("w-4 h-4", isActive ? "text-green-100" : "text-blue-400")} />
+        <span className={clsx("text-xs", isActive ? "text-green-50" : "text-gray-400")}>
           {slot.time}
         </span>
       </div>
@@ -58,7 +58,7 @@ export function TimeSlotCard({ slot, isActive, index, periodStatus }: TimeSlotCa
           transition={{ duration: 0.3 }}
           className="mt-2"
         >
-          <p className={clsx("text-xs", isActive ? "text-blue-100" : "text-gray-300")}>
+          <p className={clsx("text-xs", isActive ? "text-green-50" : "text-gray-300")}>
             {aiDescription}
           </p>
         </motion.div>

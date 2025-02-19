@@ -53,7 +53,7 @@ export const timetableData: DaySchedule[] = [
       { time: "10:30 - 11:20", subject: "KAN/HIN" },
       { time: "11:20 - 11:30", subject: "Break" },
       { time: "11:30 - 12:30", subject: "DS - LAB - IN" },
-      { time: "12:30 - 1:30", subject: "DS - LAB - IN" },
+      { time: "12:30 - 1:30", subject: "-" },
       { time: "1:30 - 2:00", subject: "Lunch Break" },
       { time: "2:00 - 3:00", subject: "DS - IN" }
     ]
@@ -62,7 +62,7 @@ export const timetableData: DaySchedule[] = [
     day: "Friday",
     slots: [
       { time: "9:30 - 10:30", subject: "RP - LAB - ARP" },
-      { time: "10:30 - 11:20", subject: "RP - LAB - ARP" },
+      { time: "10:30 - 11:20", subject: "-" },
       { time: "11:20 - 11:30", subject: "Break" },
       { time: "11:30 - 12:30", subject: "VAC" },
       { time: "12:30 - 1:30", subject: "ENG - RK" },
@@ -78,8 +78,8 @@ export const timetableData: DaySchedule[] = [
       { time: "11:20 - 11:30", subject: "Break" },
       { time: "11:30 - 12:30", subject: "ENG - RK" },
       { time: "12:30 - 1:30", subject: "KAN/HIN" },
-      { time: "1:30 - 2:00", subject: "30M-B/LET-OFF After-2:00" },
-     
+      { time: "1:30 - 2:00", subject: "-" },
+      { time: "2:00 - 3:00", subject: "30M-B/LET-OFF After-2:00" }
     ]
   }
 ];

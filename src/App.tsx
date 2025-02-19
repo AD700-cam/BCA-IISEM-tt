@@ -3,6 +3,7 @@ import { Calendar, Sun, Moon } from 'lucide-react';
 import { QuoteDisplay } from './components/QuoteDisplay';
 import { DaySchedule } from './components/DaySchedule';
 import { timetableData, getCurrentDaySchedule } from './data/timetable';
+import { FeedbackBox } from './components/FeedbackBox';
 import { motion } from "framer-motion";
 
 function App() {
@@ -81,12 +82,7 @@ function App() {
           <QuoteDisplay />
         </header>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="flex gap-2 mb-6 overflow-x-auto pb-2 scrollbar-hide"
-        >
+        <div className="flex gap-2 mb-6 overflow-x-auto pb-2 scrollbar-hide">
           {timetableData.map((schedule, index) => (
             <button
               key={schedule.day}
@@ -103,7 +99,7 @@ function App() {
               )}
             </button>
           ))}
-        </motion.div>
+        </div>
 
         <main className="h-[calc(100vh-280px)] overflow-y-auto">
           {showTimetable && (
@@ -112,6 +108,7 @@ function App() {
               isToday={today !== 0}
             />
           )}
+          <FeedbackBox />
         </main>
       </div>
     </div>

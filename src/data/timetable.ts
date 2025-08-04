@@ -43,7 +43,7 @@ export const timetableData: DaySchedule[] = [
       { time: "11:30 - 12:30", subject: "KAN/HIN" },
       { time: "12:30 - 1:30", subject: "IOT - GA" },
       { time: "1:30 - 2:00", subject: "Lunch Break" },
-      { time: "2:00 - 0:00", subject: "LET OFF" }
+      { time: "2:00 - 2:00", subject: "LET OFF" }
     ]
   },
   {
@@ -79,7 +79,7 @@ export const timetableData: DaySchedule[] = [
       { time: "11:30 - 12:30", subject: "UNIX - LAB - KSN" },
       { time: "12:30 - 1:30", subject: "KAN/HIN" },
       { time: "1:30 - 2:00", subject: "LUNCH" },
-      { time: "2:00 - 0:00", subject: "LET-OFF" }
+      { time: "2:00 - 2:00", subject: "LET-OFF" }
     ]
   }
 ];

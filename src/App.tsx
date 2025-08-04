@@ -65,7 +65,7 @@ function App() {
             <div className="flex items-center gap-3">
               <Calendar className="w-8 h-8 text-blue-400" />
               <h1 className="text-2xl sm:text-3xl font-bold text-blue-700 dark:text-blue-100">
-                BCA II SEM - Section D
+                BCA III SEM - Section D
               </h1>
             </div>
             <button

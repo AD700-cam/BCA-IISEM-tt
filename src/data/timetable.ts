@@ -13,73 +13,73 @@ export const timetableData: DaySchedule[] = [
   {
     day: "Monday",
     slots: [
-      { time: "9:30 - 10:30", subject: "KAN/HIN" },
-      { time: "10:30 - 11:20", subject: "ENG - RK" },
+      { time: "9:30 - 10:30", subject: "ENG - RAJ" },
+      { time: "10:30 - 11:20", subject: "DAA - CPK" },
       { time: "11:20 - 11:30", subject: "Break" },
-      { time: "11:30 - 12:30", subject: "DS - IN" },
-      { time: "12:30 - 1:30", subject: "OS - SP" },
+      { time: "11:30 - 12:30", subject: "SPORTS" },
+      { time: "12:30 - 1:30", subject: "JAVA - KM" },
       { time: "1:30 - 2:00", subject: "Lunch Break" },
-      { time: "2:00 - 3:00", subject: "DS - IN" }
+      { time: "2:00 - 3:00", subject: "DB - BL" }
     ]
   },
   {
     day: "Tuesday",
     slots: [
-      { time: "9:30 - 10:30", subject: "OS - SP" },
-      { time: "10:30 - 11:20", subject: "RP - ARP" },
+      { time: "9:30 - 10:30", subject: "IOT - PPS" },
+      { time: "10:30 - 11:20", subject: "ENG - RAJ" },
       { time: "11:20 - 11:30", subject: "Break" },
-      { time: "11:30 - 12:30", subject: "ENG - RK" },
-      { time: "12:30 - 1:30", subject: "OS - SP" },
+      { time: "11:30 - 12:30", subject: "DAA - CPK" },
+      { time: "12:30 - 1:30", subject: "KAN/HIN" },
       { time: "1:30 - 2:00", subject: "Lunch Break" },
-      { time: "2:00 - 3:00", subject: "DS - IN" }
+      { time: "2:00 - 3:00", subject: "DB - BL" }
     ]
   },
   {
     day: "Wednesday",
     slots: [
-      { time: "9:30 - 10:30", subject: "VAC" },
-      { time: "10:30 - 11:20", subject: "RP - ARP" },
+      { time: "9:30 - 10:30", subject: "DB - BL" },
+      { time: "10:30 - 11:20", subject: "JAVA - KM" },
       { time: "11:20 - 11:30", subject: "Break" },
-      { time: "11:30 - 12:30", subject: "SPORTS" },
-      { time: "12:30 - 1:30", subject: "DS - IN" },
+      { time: "11:30 - 12:30", subject: "KAN/HIN" },
+      { time: "12:30 - 1:30", subject: "IOT - GA" },
       { time: "1:30 - 2:00", subject: "Lunch Break" },
-      { time: "2:00 - 3:00", subject: "KAN/HIN" }
+      { time: "2:00", subject: "LET OFF" }
     ]
   },
   {
     day: "Thursday",
     slots: [
-      { time: "9:30 - 10:30", subject: "IC - PK" },
-      { time: "10:30 - 11:20", subject: "KAN/HIN" },
+      { time: "9:30 - 10:30", subject: "DB - LAB - BL" },
+      { time: "10:30 - 11:20", subject: "DB - LAB - BL" },
       { time: "11:20 - 11:30", subject: "Break" },
-      { time: "11:30 - 12:30", subject: "DS - LAB - IN" },
-      { time: "12:30 - 1:30", subject: "-" },
+      { time: "11:30 - 12:30", subject: "JAVA - KM" },
+      { time: "12:30 - 1:30", subject: "DAA - CPK" },
       { time: "1:30 - 2:00", subject: "Lunch Break" },
-      { time: "2:00 - 3:00", subject: "DS - IN" }
+      { time: "2:00 - 3:00", subject: "KAN/HIN" }
     ]
   },
   {
     day: "Friday",
     slots: [
-      { time: "9:30 - 10:30", subject: "RP - LAB - ARP" },
-      { time: "10:30 - 11:20", subject: "-" },
+      { time: "9:30 - 10:30", subject: "KAN/HIN" },
+      { time: "10:30 - 11:20", subject: "ENG - RAJ" },
       { time: "11:20 - 11:30", subject: "Break" },
-      { time: "11:30 - 12:30", subject: "VAC" },
-      { time: "12:30 - 1:30", subject: "ENG - RK" },
+      { time: "11:30 - 12:30", subject: "DB - BL" },
+      { time: "12:30 - 1:30", subject: "JAVA - KM" },
       { time: "1:30 - 2:00", subject: "Lunch Break" },
-      { time: "2:00 - 3:00", subject: "RP - ARP" }
+      { time: "2:00 - 3:45", subject: "JAVA - LAB - KM/GA" }
     ]
   },
   {
     day: "Saturday",
     slots: [
-      { time: "9:30 - 10:30", subject: "OS - SP" },
-      { time: "10:30 - 11:20", subject: "RP - ARP" },
+      { time: "9:30 - 10:30", subject: "ENG - RAJ" },
+      { time: "10:30 - 11:20", subject: "DAA - CPK" },
       { time: "11:20 - 11:30", subject: "Break" },
-      { time: "11:30 - 12:30", subject: "ENG - RK" },
+      { time: "11:30 - 12:30", subject: "UNIX - LAB - KSN" },
       { time: "12:30 - 1:30", subject: "KAN/HIN" },
-      { time: "1:30 - 2:00", subject: "-" },
-      { time: "2:00 - 3:00", subject: "30M-B/LET-OFF After-2:00" }
+      { time: "1:30 - 2:00", subject: "LUNCH" },
+      { time: "2:00", subject: "LET-OFF" }
     ]
   }
 ];

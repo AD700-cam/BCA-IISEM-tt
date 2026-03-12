@@ -32,7 +32,9 @@ export function TimeSlotCard({ slot, isActive, index, periodStatus }: TimeSlotCa
       whileHover={{ y: -4, scale: 1.01 }}
       className={clsx(
         "glass-card p-4 sm:p-5 group flex flex-col relative overflow-hidden h-full min-h-[140px] transition-all duration-500",
-        isActive ? "border-blue-500 bg-blue-600/20 shadow-[0_0_30px_rgba(59,130,246,0.3)] ring-1 ring-blue-500/50" : "border-white/5"
+        isActive
+          ? "border-blue-500 bg-blue-600/20 shadow-[0_0_30px_rgba(59,130,246,0.3)] ring-1 ring-blue-500/50"
+          : "border-white/5 hover:border-white/10 hover:shadow-[0_0_25px_rgba(255,255,255,0.03)]"
       )}
       onClick={() => setIsExpanded(!isExpanded)}
     >

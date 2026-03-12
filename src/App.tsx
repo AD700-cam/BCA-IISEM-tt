@@ -54,6 +54,10 @@ function App() {
           "absolute top-3/4 right-1/4 w-[500px] h-[500px] rounded-full blur-[128px] animate-float transition-colors duration-1000",
           isDarkMode ? "bg-purple-500/10" : "bg-purple-400/20"
         )} style={{ animationDelay: '-3s' }} />
+        <div className={clsx(
+          "absolute top-1/2 left-3/4 w-[400px] h-[400px] rounded-full blur-[100px] animate-float transition-colors duration-1000",
+          isDarkMode ? "bg-emerald-500/5" : "bg-emerald-400/20"
+        )} style={{ animationDelay: '-1.5s' }} />
       </div>
 
       {showSundayMessage && (
@@ -87,7 +91,7 @@ function App() {
                 <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
               </div>
               <div>
-                <h1 className="text-xl sm:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 leading-tight">
+                <h1 className="text-2xl sm:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 leading-tight tracking-tight">
                   BCA III SEM
                 </h1>
                 <p className="text-gray-400 text-[0.7rem] sm:text-sm font-medium">Section D • Timetable</p>
@@ -127,22 +131,37 @@ function App() {
           <QuoteDisplay />
         </header>
 
-        <nav className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
-          {timetableData.map((schedule, index) => (
-            <button
-              key={schedule.day}
-              onClick={() => setSelectedDay(index)}
-              className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-[0.8rem] sm:text-sm font-semibold whitespace-nowrap transition-all duration-300 border ${selectedDay === index
-                ? 'bg-blue-600 border-blue-400 text-white shadow-lg shadow-blue-900/40'
-                : 'glass-card border-white/5 text-gray-400 hover:text-gray-200'
-                }`}
-            >
-              {schedule.day}
-              {index === today - 1 && (
-                <span className="ml-2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full inline-block animate-pulse" />
-              )}
-            </button>
-          ))}
+        <nav className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 relative">
+          {timetableData.map((schedule, index) => {
+            const isSelected = selectedDay === index;
+            return (
+              <button
+                key={schedule.day}
+                onClick={() => setSelectedDay(index)}
+                className={clsx(
+                  "relative px-5 sm:px-7 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-[0.85rem] sm:text-sm font-semibold whitespace-nowrap transition-colors duration-500",
+                  isSelected ? "text-white" : "text-gray-400 hover:text-gray-200"
+                )}
+              >
+                {isSelected && (
+                  <motion.div
+                    layoutId="activeDayPill"
+                    className="absolute inset-0 bg-blue-600 rounded-xl sm:rounded-2xl shadow-lg shadow-blue-900/40 border border-blue-400"
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  />
+                )}
+                {!isSelected && (
+                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl glass-card border flex items-center justify-center -z-10 border-white/5 opacity-50" />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  {schedule.day}
+                  {index === today - 1 && (
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full inline-block animate-pulse" />
+                  )}
+                </span>
+              </button>
+            );
+          })}
         </nav>
 
         <main className="flex-1 min-h-0 flex flex-col">

@@ -32,8 +32,7 @@ export const timetableData: DaySchedule[] = [
       { time: "11:30 AM - 12:30 PM", subject: "PYT - LAB - ARP" },
       { time: "12:30 PM - 1:30 PM", subject: "PYT - LAB - ARP" },
       { time: "1:30 PM - 2:00 PM", subject: "Lunch Break" },
-      { time: "2:00 PM - 3:00 PM", subject: "AIA - ABJ" },
-      { time: "3:00 PM - 3:45 PM", subject: "-" }
+      { time: "2:00 PM - 3:00 PM", subject: "AIA - ABJ" }
     ]
   },
   {
@@ -58,8 +57,7 @@ export const timetableData: DaySchedule[] = [
       { time: "11:30 AM - 12:30 PM", subject: "KAN" },
       { time: "12:30 PM - 1:30 PM", subject: "PYT - ARP" },
       { time: "1:30 PM - 2:00 PM", subject: "Lunch Break" },
-      { time: "2:00 PM - 3:00 PM", subject: "CN - BL" },
-      { time: "3:00 PM - 3:45 PM", subject: "-" }
+      { time: "2:00 PM - 3:00 PM", subject: "CN - BL" }
     ]
   },
   {
@@ -71,8 +69,7 @@ export const timetableData: DaySchedule[] = [
       { time: "11:30 AM - 12:30 PM", subject: "PYT - ARP" },
       { time: "12:30 PM - 1:30 PM", subject: "ENG - RK" },
       { time: "1:30 PM - 2:00 PM", subject: "Lunch Break" },
-      { time: "2:00 PM - 3:00 PM", subject: "KAN" },
-      { time: "3:00 PM - 3:45 PM", subject: "-" }
+      { time: "2:00 PM - 3:00 PM", subject: "KAN" }
     ]
   },
   {
@@ -97,8 +94,7 @@ export const timetableData: DaySchedule[] = [
       { time: "11:30 AM - 12:30 PM", subject: "FDS - NK" },
       { time: "12:30 PM - 1:30 PM", subject: "CN - BL" },
       { time: "1:30 PM - 2:00 PM", subject: "Lunch Break" },
-      { time: "2:00 PM - 3:00 PM", subject: "-" },
-      { time: "3:00 PM - 3:45 PM", subject: "-" }
+      { time: "2:00 PM - 3:00 PM", subject: "-" }
     ]
   }
 ];
